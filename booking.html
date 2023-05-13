@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie Ticket Booking</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+  .container {
+	width: 80%;
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+}
+
+body{
+	background-image: url("download.jpg");
+	background-size: cover;
+}
+
+h1 {
+	font-size: 36px;
+	margin-bottom: 30px;
+}
+
+label {
+	font-size: 24px;
+	margin-right: 10px;
+}
+
+select {
+	font-size: 24px;
+	padding: 5px 10px;
+	border: none;
+	background-color: #f2f2f2;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+#seats {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.seat {
+	width: 50px;
+	height: 50px;
+	margin: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.available {
+	background-color: green;
+}
+
+.booked {
+	background-color: blue;
+}
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+#movie {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  border-radius: 10px;
+  border: none;
+}
+
+#seats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  background-color: #2ecc71;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.seat.booked {
+  background-color: #3498db;
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  background-color: #f1c40f;
+}
+
+#summary {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+	<div class="container">
+		<h1>Movie Ticket Booking</h1>
+		<label for="movie">Select a movie:</label>
+		<select id="movie" onchange="generateSeats()">
+			<option value="Avengers">Avengers</option>
+			<option value="The Dark Knight">The Dark Knight</option>
+			<option value="Jurassic Park">Jurassic Park</option>
+		</select>
+    <div id="error-message" style="display: none; color: red;"></div>
+		<div id="seats"></div>
+    <div id="summary">
+      <div>
+        <h2>Selected Seats Number:</h2>
+        <p id="selected-seats"></p>
+      </div>
+
+      <div>
+        <h2>Total Price:</h2>
+        <p id="total-price"></p>
+      </div>
+    </div>
+    <form onsubmit="return submitForm();" action="submit.html" method="post">
+      <input type="hidden" id="selected-seats-input" name="selected-seats" value="">
+        <button type="submit">Submit</button>
+		</form>
+    <div id="countdown"></div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
